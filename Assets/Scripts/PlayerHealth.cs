@@ -18,6 +18,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Collided");
+        if(health >= 1)
+        {
+            health -= 5;
+        }
     }
 }
