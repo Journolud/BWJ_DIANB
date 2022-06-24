@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     public float health = 100f;
 
     void Start()
     {
-        
+
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        
+
+    }
+
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("Collided");
     }
 }
