@@ -11,6 +11,8 @@ public class RoomManager : MonoBehaviour
     public TileBase doorTopLeft, doorTopRight, doorBottomLeft, doorBottomRight, doorRightTop, doorRightBottom, doorLeftTop, doorLeftBottom;
     public GameObject doorTop, doorBottom, doorLeft, doorRight;
 
+    public List<GameObject> enemies;
+
     public void Start()
     {
         mainTileMap = transform.Find("Grid/MainTileMap").gameObject.GetComponent<Tilemap>();

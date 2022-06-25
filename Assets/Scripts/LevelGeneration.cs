@@ -6,7 +6,7 @@ public class LevelGeneration : MonoBehaviour
 {
     private Dictionary<(int, int), RoomInfo> levelMap;
     public GameObject startRoomPrefab;
-    public List<GameObject> roomPrefabs;
+    public List<GameObject> roomPrefabs, backRoomPrefabs;
     Vector2Int head;
     
     // Start is called before the first frame update
@@ -32,7 +32,6 @@ public class LevelGeneration : MonoBehaviour
                 Vector2Int nextRoomPosition = possibleNeighbours[Random.Range(0, possibleNeighbours.Count)];
                 levelMap.Add((nextRoomPosition.x, nextRoomPosition.y), new RoomInfo(head));
                 head = nextRoomPosition;
-                Debug.Log(head);
                 roomsGenerated++;
             }
         }
@@ -40,10 +39,15 @@ public class LevelGeneration : MonoBehaviour
         {
             float x = entry.Key.Item1 * 20;
             float y = entry.Key.Item2 * 13;
-            
+            Vector2Int _location = new Vector2Int(entry.Key.Item1, entry.Key.Item2);
+            Debug.Log(GetNeighbourDirectionsAtPoint(_location));
             if (x == 0 && y == 0)
             {
                 Instantiate(startRoomPrefab, new Vector3(x, y, 0), Quaternion.identity);
+            }
+            else if (GetNoNeighbourAbove(_location)){
+                GameObject nextRoom = backRoomPrefabs[Random.Range(0, backRoomPrefabs.Count)];
+                Instantiate(nextRoom, new Vector3(x, y, 0), Quaternion.identity);
             }
             else
             {
@@ -80,6 +84,15 @@ public class LevelGeneration : MonoBehaviour
             }
         }
         return freeNeighbours;
+    }
+
+    bool GetNoNeighbourAbove(Vector2Int position)
+    {
+        if (!levelMap.ContainsKey((position.x, position.y + 1)))
+        {
+            return true;
+        }
+        return false;
     }
 }
 
