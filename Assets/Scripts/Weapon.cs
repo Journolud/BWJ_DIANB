@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     public GameObject primaryProjectile;
     public float primaryCoolDown;
     private float primaryTimer;
+    public float primaryFireSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,12 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         primaryTimer += Time.deltaTime;
+
+        Vector2 mouse = Camera.main.ScreenToWorldPoint(controls.Player.Aim.ReadValue<Vector2>());
+        Vector2 lookDir = mouse - new Vector2(transform.position.x, transform.position.y);
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 130;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+
     }
 
     private void SetAttackFunctions()
@@ -93,6 +100,6 @@ public class Weapon : MonoBehaviour
         _direction.Normalize();
         Debug.Log(_direction);
         GameObject _newProjectile = Instantiate(_projectile, _firepoint.position, _firepoint.rotation);
-        _newProjectile.GetComponent<Rigidbody2D>().AddForce(_direction * 5, ForceMode2D.Impulse);
+        _newProjectile.GetComponent<Rigidbody2D>().AddForce(_direction * primaryFireSpeed, ForceMode2D.Impulse);
     }
 }

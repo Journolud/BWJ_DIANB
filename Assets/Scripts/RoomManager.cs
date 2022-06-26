@@ -9,14 +9,19 @@ public class RoomManager : MonoBehaviour
     Tilemap mainTileMap;
 
     public TileBase doorTopLeft, doorTopRight, doorBottomLeft, doorBottomRight, doorRightTop, doorRightBottom, doorLeftTop, doorLeftBottom;
+    public TileBase doorTopLeftOpen, doorTopRightOpen, doorBottomLeftOpen, doorBottomRightOpen, doorRightTopOpen, doorRightBottomOpen, doorLeftTopOpen, doorLeftBottomOpen;
     public GameObject doorTop, doorBottom, doorLeft, doorRight;
+    List<Vector2Int> neighbourDirections;
 
-    public List<GameObject> enemies;
+    public int enemies = 0;
+    public List<Door> doors;
 
     public void Start()
     {
+        doors = new List<Door>();
+
         mainTileMap = transform.Find("Grid/MainTileMap").gameObject.GetComponent<Tilemap>();
-        List<Vector2Int> neighbourDirections = new List<Vector2Int>();
+        neighbourDirections = new List<Vector2Int>();
         int layer_mask = LayerMask.GetMask("RoomDetection");
 
         foreach (Vector2Int direction in DirectionVectors2D.cardinalDirectionVectorsInt)
@@ -42,68 +47,71 @@ public class RoomManager : MonoBehaviour
         {
             if (direction.Equals(new Vector2Int(0, 1)))
             {
-                Debug.Log("Neighbour above");
                 mainTileMap.SetTile(new Vector3Int(-1, 4, 0), doorTopLeft);
                 mainTileMap.SetTile(new Vector3Int(0, 4, 0), doorTopRight);
-                Instantiate(doorTop, transform.position, Quaternion.identity);
             }
             if (direction.Equals(new Vector2Int(0, -1)))
             {
-                Debug.Log("Neighbour below");
                 mainTileMap.SetTile(new Vector3Int(-1, -5, 0), doorBottomLeft);
                 mainTileMap.SetTile(new Vector3Int(0, -5, 0), doorBottomRight);
-                Instantiate(doorBottom, transform.position, Quaternion.identity);
             }
             if (direction.Equals(new Vector2Int(1, 0)))
             {
                 mainTileMap.SetTile(new Vector3Int(8, 0, 0), doorRightTop);
                 mainTileMap.SetTile(new Vector3Int(8, -1, 0), doorRightBottom);
-                Instantiate(doorRight, transform.position, Quaternion.identity);
-                Debug.Log("Neighbour right");
             }
 
             if (direction.Equals(new Vector2Int(-1, 0)))
             {
                 mainTileMap.SetTile(new Vector3Int(-9, 0, 0), doorLeftTop);
                 mainTileMap.SetTile(new Vector3Int(-9, -1, 0), doorLeftBottom);
-                Instantiate(doorLeft, transform.position, Quaternion.identity);
-                Debug.Log("Neighbour right");
-                Debug.Log("Neighbour left");
             }
+        }
+
+        if (enemies == 0)
+        {
+            OpenDoors();
         }
     }
 
-    public void SetNeighbours(List<Vector2Int> _neighbourDirections)
+    private void OpenDoors()
     {
-        mainTileMap = transform.Find("Grid/MainTileMap").gameObject.GetComponent<Tilemap>();
-        foreach (Vector2Int direction in _neighbourDirections)
+        foreach (Vector2Int direction in neighbourDirections)
         {
-            Debug.Log("Neighbour at");
-            Debug.Log(direction);
-            Debug.Log("Tilemap size");
-            Debug.Log(mainTileMap.size);
-            
             if (direction.Equals(new Vector2Int(0, 1)))
             {
-                Debug.Log("Neighbour above");
-                mainTileMap.SetTile(new Vector3Int(-1, 4, 0), doorTopLeft);
-                mainTileMap.SetTile(new Vector3Int(0, 4, 0), doorTopRight);
+                mainTileMap.SetTile(new Vector3Int(-1, 4, 0), doorTopLeftOpen);
+                mainTileMap.SetTile(new Vector3Int(0, 4, 0), doorTopRightOpen);
+                Instantiate(doorTop, transform.position, Quaternion.identity);
             }
             if (direction.Equals(new Vector2Int(0, -1)))
             {
-                Debug.Log("Neighbour below");
-                mainTileMap.SetTile(new Vector3Int(-1, -4, 0), doorTopLeft);
-                mainTileMap.SetTile(new Vector3Int(0, -4, 0), doorTopRight);
+                mainTileMap.SetTile(new Vector3Int(-1, -5, 0), doorBottomLeftOpen);
+                mainTileMap.SetTile(new Vector3Int(0, -5, 0), doorBottomRightOpen);
+                Instantiate(doorBottom, transform.position, Quaternion.identity);
             }
             if (direction.Equals(new Vector2Int(1, 0)))
             {
-                Debug.Log("Neighbour right");
+                mainTileMap.SetTile(new Vector3Int(8, 0, 0), doorRightTopOpen);
+                mainTileMap.SetTile(new Vector3Int(8, -1, 0), doorRightBottomOpen);
+                Instantiate(doorRight, transform.position, Quaternion.identity);
             }
 
             if (direction.Equals(new Vector2Int(-1, 0)))
             {
-                Debug.Log("Neighbour left");
+                mainTileMap.SetTile(new Vector3Int(-9, 0, 0), doorLeftTopOpen);
+                mainTileMap.SetTile(new Vector3Int(-9, -1, 0), doorLeftBottomOpen);
+                Instantiate(doorLeft, transform.position, Quaternion.identity);
             }
+        }
+    }
+
+    public void EnemyKilled()
+    {
+        enemies -= 1;
+        if (enemies == 0)
+        {
+            OpenDoors();
         }
     }
 

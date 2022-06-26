@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int health;
+    public RoomManager roomManager;
+    public GameObject deathEffect;
+    
+    public void TakeDamage(int _damage)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        health -= _damage;
+        if (health < 0)
+        {
+            roomManager.EnemyKilled();
+            if (deathEffect)
+            {
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
+        }
     }
 }

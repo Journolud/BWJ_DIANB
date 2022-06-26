@@ -872,11 +872,20 @@ MonoBehaviour:
   doorRightBottom: {fileID: 11400000, guid: a4261770e738dcd4ebb79c603dda150f, type: 2}
   doorLeftTop: {fileID: 11400000, guid: 941047dd0da82f0428df5a977efdeb65, type: 2}
   doorLeftBottom: {fileID: 11400000, guid: 941047dd0da82f0428df5a977efdeb65, type: 2}
+  doorTopLeftOpen: {fileID: 11400000, guid: 6e5a13f17c9b5df4ebb803db101c189f, type: 2}
+  doorTopRightOpen: {fileID: 11400000, guid: 97a61280e7039a247b902e1a89a89331, type: 2}
+  doorBottomLeftOpen: {fileID: 11400000, guid: f879c9fb6593766478676049e1cb30a3, type: 2}
+  doorBottomRightOpen: {fileID: 11400000, guid: b341c08d01ee7a043bdf972a1e0e8ef3, type: 2}
+  doorRightTopOpen: {fileID: 11400000, guid: 9d25d4ed951aba0478200a62ed5f544c, type: 2}
+  doorRightBottomOpen: {fileID: 11400000, guid: 97bc9a764f590344faf1099e2457b511, type: 2}
+  doorLeftTopOpen: {fileID: 11400000, guid: 941047dd0da82f0428df5a977efdeb65, type: 2}
+  doorLeftBottomOpen: {fileID: 11400000, guid: 941047dd0da82f0428df5a977efdeb65, type: 2}
   doorTop: {fileID: 639262334715505441, guid: e03a88771a29d7f4b9ff98a39154de31, type: 3}
   doorBottom: {fileID: 2370658435965955739, guid: e78ebc7d53501a84fb8e3edcd7087268, type: 3}
   doorLeft: {fileID: 7375347305121086264, guid: fc34015edffe2634c813e5b97de8d577, type: 3}
   doorRight: {fileID: 8724093359689081017, guid: b61a5732d535b0e4db97e93ca3996feb, type: 3}
-  enemies: []
+  enemies: 0
+  doors: []
 --- !u!61 &6600628379144297760
 BoxCollider2D:
   m_ObjectHideFlags: 0
