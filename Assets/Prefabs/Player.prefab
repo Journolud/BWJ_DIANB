@@ -250,8 +250,6 @@ MonoBehaviour:
   dashSpeed: 10
   timeTransparent: 0
   shadow: {fileID: 4100885608708016856, guid: 5e2f49c02b1f86b45a454065be8a1f1a, type: 3}
-  firePoint: {fileID: 0}
-  primaryProjectile: {fileID: 0}
 --- !u!212 &9124963601937172762
 SpriteRenderer:
   m_ObjectHideFlags: 0

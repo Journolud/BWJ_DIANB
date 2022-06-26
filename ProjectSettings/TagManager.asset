@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Ghost
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -15,9 +17,9 @@ TagManager:
   - RoomDetection
   - Enemy
   - Player
-  - 
-  - 
-  - 
+  - Projectile
+  - EnemyProjectile
+  - PickUps
   - 
   - 
   - 

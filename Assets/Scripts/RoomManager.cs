@@ -115,6 +115,22 @@ public class RoomManager : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name != "Player") { return; }
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).gameObject.tag == "Enemy")
+            {
+                if (transform.GetChild(i).gameObject.GetComponent<Enemy>())
+                {
+                    transform.GetChild(i).gameObject.GetComponent<Enemy>().active = true;
+                }
+            }
+
+        }
+    }
+
 }
 
 

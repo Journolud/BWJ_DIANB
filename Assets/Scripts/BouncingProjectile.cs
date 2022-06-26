@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LinearProjectile : MonoBehaviour
+public class BouncingProjectile : MonoBehaviour
 {
     public int damage;
     public GameObject bulletImpact;
     public bool enchanted;
+    private bool hasBounced = false;
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -14,8 +15,13 @@ public class LinearProjectile : MonoBehaviour
         {
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
         }
-        
+
         Instantiate(bulletImpact, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        if (hasBounced)
+        {
+            Destroy(gameObject);
+        }
+        hasBounced = true;
     }
 }
+

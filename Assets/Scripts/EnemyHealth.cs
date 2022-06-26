@@ -18,6 +18,10 @@ public class EnemyHealth : MonoBehaviour
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
             }
+            if (GetComponent<DropOnDeath>())
+            {
+                GetComponent<DropOnDeath>().dropPickUp();
+            }
             Destroy(gameObject);
         }
     }

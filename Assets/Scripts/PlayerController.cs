@@ -17,9 +17,12 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer sprite;
     public GameObject shadow;
 
-    // Shoot Variables
-    public Transform firePoint;
-    public GameObject primaryProjectile;
+    // Pick up logic
+    public GameObject weapon;
+    public GameObject projectile;
+   
+
+    
 
     void Start()
     {
@@ -27,9 +30,10 @@ public class PlayerController : MonoBehaviour
         controls = new InputActions();
         controls.Enable();
         controls.Player.Dash.performed += _ => Dash();
-        controls.Player.Shoot.performed += _ => FireSingle(firePoint, primaryProjectile);
+        controls.Player.PickUp.performed += _ => PickUpItem();
         sprite = GetComponent<SpriteRenderer>();
         //animator = gameObject.GetComponent<Animator>();
+        
     }
 
     private void Update()
@@ -38,13 +42,15 @@ public class PlayerController : MonoBehaviour
         {
             
             dashTimer += Time.deltaTime;
-            if (dashTimer > 0.2)
+            if (dashTimer > 0.4)
             {
                 dash = false;
                 sprite.color = new Color(1f, 1f, 1f, 1f);
                 dashTimer = 0;
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyProjectile"), false);
             }
         }
+        
     }
 
     private void FixedUpdate()
@@ -91,18 +97,31 @@ public class PlayerController : MonoBehaviour
         Vector3 _mousePosition = Camera.main.ScreenToWorldPoint(controls.Player.Aim.ReadValue<Vector2>());
         dashDirection = _mousePosition - transform.position;
         dashDirection.Normalize();
-        sprite.color = new Color(1f, 1f, 1f, 0.8f);
+        sprite.color = new Color(1f, 1f, 1f, 0.5f);
         dash = true;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyProjectile"));
     }
 
-    private void FireSingle(Transform _firepoint, GameObject _projectile)
+    public bool getDash()
     {
-        Vector3 _mousePosition = Camera.main.ScreenToWorldPoint(controls.Player.Aim.ReadValue<Vector2>());
-        Vector2 _direction = _mousePosition - _firepoint.position;
-        _direction.Normalize();
-        Debug.Log(_direction);
-        GameObject _newProjectile = Instantiate(_projectile, _firepoint.position, _firepoint.rotation);
-        //newLaser.GetComponent<Rigidbody2D>().AddForce(_direction * 5, ForceMode2D.Impulse);
-        _newProjectile.GetComponent<Rigidbody2D>().velocity = _direction * 10;
+        return dash;
     }
+
+    private void PickUpItem()
+    {
+        Debug.Log("Looking for PickUps");
+        int layerMask = LayerMask.GetMask("PickUps");
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(gameObject.transform.position, new Vector2(2, 2), 0, layerMask);
+        if (hitColliders.Length > 0)
+        {
+            if (hitColliders[0].gameObject.GetComponent<PickUp>().type == "projectile")
+            {
+                projectile = hitColliders[0].gameObject.GetComponent<PickUp>().pickUpObject;
+                weapon.GetComponent<Weapon>().primaryProjectile = projectile;
+                Destroy(hitColliders[0].gameObject);
+            }
+        }
+    }
+
+
 }
