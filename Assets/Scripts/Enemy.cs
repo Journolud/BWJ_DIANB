@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     public Transform player;
+    public float angle;
+    public bool facingRight = true;
     public float moveSpeed = 2f;
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -23,10 +25,10 @@ public class Enemy : MonoBehaviour {
     {
         if (!active) { return; }
         Vector3 direction = player.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         direction.Normalize();
         movement = direction;
+
         // Logic for state switching
         if (mode == "dash")
         {
@@ -47,10 +49,23 @@ public class Enemy : MonoBehaviour {
 
     void moveEnemy(Vector2 direction)
     {
+        if(angle >= 90f && angle >= -90f && facingRight)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
+            facingRight = false;
+        }
+
+        else if(angle <= 90f && angle >= -60 && !facingRight)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
+            facingRight = true;
+        }
+
         if (mode == "dash")
         {
             rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime * 2));
         }
+        
         else
         {
             rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
