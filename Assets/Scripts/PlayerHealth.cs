@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public bool healthDecrease = false;
     public float health = 100f;
 
-    void Start()
+    void FixedUpdate()
     {
-
-    }
-
-    void Update()
-    {
-
+        if (healthDecrease && health >= 0.5f)
+        {
+            health -= 0.5f;
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if(health >= 1)
-        {
-            health -= 5;
-        }
+        healthDecrease = true;
+    }
+
+    public void OnTriggerExit2D(Collider2D collider)
+    {
+        healthDecrease = false;
     }
 }
