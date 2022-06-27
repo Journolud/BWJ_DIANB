@@ -6,16 +6,6 @@ public class PlayerHealth : MonoBehaviour
 {
     public float health = 100f;
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if(health >= 1)
