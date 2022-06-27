@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d582a04fc701d42b6efbaecc6ad7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
+  health: 125
   roomManager: {fileID: 0}
   deathEffect: {fileID: 0}
 --- !u!114 &3456685772726470270

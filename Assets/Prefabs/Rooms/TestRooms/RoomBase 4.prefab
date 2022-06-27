@@ -885,7 +885,7 @@ MonoBehaviour:
   doorBottom: {fileID: 2370658435965955739, guid: e78ebc7d53501a84fb8e3edcd7087268, type: 3}
   doorLeft: {fileID: 7375347305121086264, guid: fc34015edffe2634c813e5b97de8d577, type: 3}
   doorRight: {fileID: 8724093359689081017, guid: b61a5732d535b0e4db97e93ca3996feb, type: 3}
-  enemies: 1
+  enemies: 0
   doors: []
 --- !u!61 &6600628379144297760
 BoxCollider2D:

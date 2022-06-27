@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         {
             
             dashTimer += Time.deltaTime;
-            if (dashTimer > 0.4)
+            if (dashTimer > 0.25)
             {
                 dash = false;
                 sprite.color = new Color(1f, 1f, 1f, 1f);

@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41088e71b256a5743bf3e067f7bed02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 5
   bulletImpact: {fileID: 2857266968914556815, guid: 7008ddbe89f0f374eb439140e20af237, type: 3}
   enchanted: 0
