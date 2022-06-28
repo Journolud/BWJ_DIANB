@@ -6,14 +6,28 @@ public class ChestsRand : MonoBehaviour
 {
     PlayerHealth playerHealth;
     [SerializeField] GameObject player;
-    public int PlayerRandomizer;
-    public int WeaponRandomizer;
-    public int HealthRandomizer;
-    public int HealthRand;
+    [SerializeField] GameObject chest;
+    private InputActions controls;
+    public int PreSet;
+    public int Ammount;
+    public int Ammo;
+    public bool enter = false;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Randomizer();
+        enter = true;
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        enter = false;
+    }
+
+    void Start()
+    {
+        controls = new InputActions();
+            controls.Enable();
+            controls.Player.PickUp.performed += _ => Randomizer();
     }
 
     void Awake()
@@ -21,18 +35,61 @@ public class ChestsRand : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
     }
 
+    void FixedUpdate()
+    {
+        Randomizer();
+    }
+
+
     void Randomizer()
     {
+        if (!enter) { return; }
+        chest.GetComponent<BoxCollider2D>().enabled = false;
+        PreSet = Random.Range(1, 4);
 
-        PlayerRandomizer = Random.Range(0, 3);
-        WeaponRandomizer = Random.Range(0, 3);
-        HealthRandomizer = Random.Range(1, 7);
+        if(PreSet == 1)
+        {
+            SpawnAmmo();
+        } 
 
-        HealthRand = HealthRandomizer * 20;
+        else if(PreSet == 2)
+        {
+            SpawnHealth();
+        }
 
-        playerHealth.health = HealthRand;
+        else if(PreSet == 3)
+        {
+            SpawnGun();
+        }
 
-        Debug.Log(HealthRand);
+        else if(PreSet == 4)
+        {
+            SpawnAmmo();
+            SpawnHealth();
+        }
+    }
 
+    void SpawnAmmo()
+    {
+
+    }
+
+    void SpawnGun()
+    {
+
+    }
+
+    void SpawnHealth()
+    {
+        Ammount = Random.Range(1, 2);
+        if(Ammount == 1)
+        {
+            playerHealth.health += 20;
+        }
+
+        else if(Ammount == 2)
+        {
+            playerHealth.health += 40;
+        }
     }
 }
