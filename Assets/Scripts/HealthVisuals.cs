@@ -30,7 +30,19 @@ public class HealthVisuals : MonoBehaviour
     {
         SharedHealth = playerHealth.health;
 
-        if(SharedHealth >= 120)
+        if (SharedHealth >= 121)
+        {
+            h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            return;
+        }
+
+        else if(SharedHealth >= 101)
         {
             h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
 
@@ -43,7 +55,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if(SharedHealth >= 100)
+        else if(SharedHealth >= 81)
         {
             h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -56,7 +68,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if(SharedHealth >= 80)
+        else if(SharedHealth >= 61)
         {
             h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -69,7 +81,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if (SharedHealth >= 60)
+        else if (SharedHealth >= 41)
         {
             h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -82,7 +94,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if (SharedHealth >= 40)
+        else if (SharedHealth >= 21)
         {
             h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -95,7 +107,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if (SharedHealth >= 20)
+        else if (SharedHealth >= 1)
         {
             h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -108,7 +120,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if (SharedHealth >= 0)
+        else if (SharedHealth == 0)
         {
             h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
