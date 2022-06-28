@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerReturn" id="{6a3390c4-b64d-43cb-9918-e41df8841666}">
+		<property name="overridingInputFormat">
+			<value>2</value>
+		</property>
+		<property name="name">
+			<value>Reverb</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{bd311611-b59b-4430-aa62-1a886da3bb3c}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{914b8704-3595-405b-8bec-c62e9ec13fe1}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{1e2e998c-c792-42f4-aa45-1d3d8e10f968}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{bd311611-b59b-4430-aa62-1a886da3bb3c}">
+		<relationship name="effects">
+			<destination>{30317819-6e51-4c3b-998e-8702fb4d541d}</destination>
+			<destination>{640d5981-c829-42cd-8d8e-4d782f7e25d1}</destination>
+			<destination>{2ab93a9b-460f-439b-91c4-911689484335}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{914b8704-3595-405b-8bec-c62e9ec13fe1}" />
+	<object class="MultibandEqEffect" id="{30317819-6e51-4c3b-998e-8702fb4d541d}">
+		<property name="filterTypeA">
+			<value>5</value>
+		</property>
+		<property name="filterTypeE">
+			<value>8</value>
+		</property>
+		<property name="frequencyA">
+			<value>480</value>
+		</property>
+		<property name="gainE">
+			<value>-17.5</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{640d5981-c829-42cd-8d8e-4d782f7e25d1}">
+		<property name="decayTime">
+			<value>2200</value>
+		</property>
+		<property name="wetLevel">
+			<value>0</value>
+		</property>
+		<property name="dryLevel">
+			<value>-80</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{2ab93a9b-460f-439b-91c4-911689484335}" />
+</objects>
