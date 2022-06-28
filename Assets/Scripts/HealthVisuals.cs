@@ -30,7 +30,7 @@ public class HealthVisuals : MonoBehaviour
     {
         SharedHealth = playerHealth.health;
 
-        if(SharedHealth == 120)
+        if(SharedHealth >= 120)
         {
             h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
 
@@ -43,7 +43,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if(SharedHealth == 100)
+        else if(SharedHealth >= 100)
         {
             h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -56,7 +56,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if(SharedHealth == 80)
+        else if(SharedHealth >= 80)
         {
             h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -69,7 +69,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if (SharedHealth == 60)
+        else if (SharedHealth >= 60)
         {
             h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -82,7 +82,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if (SharedHealth == 40)
+        else if (SharedHealth >= 40)
         {
             h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -95,7 +95,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if (SharedHealth == 20)
+        else if (SharedHealth >= 20)
         {
             h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
@@ -108,7 +108,7 @@ public class HealthVisuals : MonoBehaviour
             return;
         }
 
-        else if (SharedHealth == 0)
+        else if (SharedHealth >= 0)
         {
             h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);

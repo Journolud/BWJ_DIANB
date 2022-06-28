@@ -14,6 +14,10 @@ public class LinearProjectile : MonoBehaviour
         {
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
         }
+        else if (col.gameObject.name == "Player")
+        {
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+        }
         
         Instantiate(bulletImpact, transform.position, Quaternion.identity);
         Destroy(gameObject);
