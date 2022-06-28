@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public bool healthDecrease = false;
     public float health = 100f;
+    public float maxHealth = 100f;
 
     void FixedUpdate()
     {
@@ -16,12 +17,33 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
-    {
-        healthDecrease = true;
+    { 
+        if (collider.gameObject.GetComponent<Enemy>())
+        {
+            healthDecrease = true;
+        }
+        
     }
 
     public void OnTriggerExit2D(Collider2D collider)
     {
-        healthDecrease = false;
+        if (collider.gameObject.GetComponent<Enemy>())
+        {
+            healthDecrease = false;
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
+    public void AddHealth(int _health)
+    {
+        health += _health;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
 }
