@@ -5,7 +5,8 @@ using UnityEngine;
 public class HealthVisuals : MonoBehaviour
 {
     public float SharedHealth, movingSpeed, dashingSpeed;
-    public float alphaLevel = 0f;
+    public float alphaOff = 0f;
+    public float alphaOn = 1f;
     PlayerHealth playerHealth;
     PlayerController playerController;
     [SerializeField] GameObject player;
@@ -14,6 +15,8 @@ public class HealthVisuals : MonoBehaviour
     [SerializeField] GameObject h3;
     [SerializeField] GameObject h4;
     [SerializeField] GameObject h5;
+    [SerializeField] GameObject h6;
+    [SerializeField] GameObject h7;
 
 
     void Awake()
@@ -27,41 +30,96 @@ public class HealthVisuals : MonoBehaviour
     {
         SharedHealth = playerHealth.health;
 
-        if(SharedHealth >= 81)
+        if(SharedHealth == 120)
         {
+            h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+
+            h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            return;
+        }
+
+        else if(SharedHealth == 100)
+        {
+            h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+
+            h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
             return;
         }
 
         else if(SharedHealth == 80)
         {
-            h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaLevel);
+            h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+
+            h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
             return;
         }
 
         else if (SharedHealth == 60)
         {
-            h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaLevel);
+            h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+
+            h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
             return;
         }
 
         else if (SharedHealth == 40)
         {
-            h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaLevel);
+            h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+
+            h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
+            h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
             return;
         }
 
         else if (SharedHealth == 20)
         {
-            h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaLevel);
+            h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+
+            h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOn);
             return;
         }
 
         else if (SharedHealth == 0)
         {
-            h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaLevel);
+            h1.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h2.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h3.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h4.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h5.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h6.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
+            h7.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaOff);
             playerController.moveSpeed = 0f;
             playerController.dashSpeed = 0f;
             return;
         }
-    }
+    } 
 }
