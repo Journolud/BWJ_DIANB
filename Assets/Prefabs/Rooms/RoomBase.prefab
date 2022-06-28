@@ -371,6 +371,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -3, y: -2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 6
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 8, y: -2, z: 0}
     second:
       serializedVersion: 2
@@ -406,6 +416,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 8
       m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 3, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 7
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -466,16 +486,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 8
       m_TileSpriteIndex: 8
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 6, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 7
-      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -685,10 +695,10 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 229cee539ef6f234f840f4528cb37d1c, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 718b4d2bb2ab37741a6ecc007a0ab0eb, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 0fcb6036bab3112418c6b5a8fc14535a, type: 2}
+    m_Data: {fileID: 11400000, guid: e26e5ab334a2186439037dbcab7a4afc, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: f2a5ffa0016fea842b1cc03c51981511, type: 2}
   - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: d5e51e58445ea2b4da54d68d31e04fb0, type: 2}
   - m_RefCount: 8
@@ -712,10 +722,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 10
     m_Data: {fileID: -8361922766561481131, guid: 105f3380ab510e64c833237aa7750fbe, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: -6082272865923049458, guid: 105f3380ab510e64c833237aa7750fbe, type: 3}
+    m_Data: {fileID: 5631522329947299111, guid: 105f3380ab510e64c833237aa7750fbe, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -8025607232989610155, guid: 105f3380ab510e64c833237aa7750fbe, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 5494125263295540856, guid: 105f3380ab510e64c833237aa7750fbe, type: 3}
   - m_RefCount: 1
@@ -735,7 +745,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 1812283169062149059, guid: 105f3380ab510e64c833237aa7750fbe, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 53
+  - m_RefCount: 54
     m_Data:
       e00: 1
       e01: 0
@@ -754,7 +764,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 53
+  - m_RefCount: 54
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -882,10 +892,20 @@ MonoBehaviour:
   doorRightBottom: {fileID: 11400000, guid: a4261770e738dcd4ebb79c603dda150f, type: 2}
   doorLeftTop: {fileID: 11400000, guid: 941047dd0da82f0428df5a977efdeb65, type: 2}
   doorLeftBottom: {fileID: 11400000, guid: 941047dd0da82f0428df5a977efdeb65, type: 2}
+  doorTopLeftOpen: {fileID: 0}
+  doorTopRightOpen: {fileID: 0}
+  doorBottomLeftOpen: {fileID: 0}
+  doorBottomRightOpen: {fileID: 0}
+  doorRightTopOpen: {fileID: 0}
+  doorRightBottomOpen: {fileID: 0}
+  doorLeftTopOpen: {fileID: 0}
+  doorLeftBottomOpen: {fileID: 0}
   doorTop: {fileID: 639262334715505441, guid: e03a88771a29d7f4b9ff98a39154de31, type: 3}
   doorBottom: {fileID: 2370658435965955739, guid: e78ebc7d53501a84fb8e3edcd7087268, type: 3}
   doorLeft: {fileID: 7375347305121086264, guid: fc34015edffe2634c813e5b97de8d577, type: 3}
   doorRight: {fileID: 8724093359689081017, guid: b61a5732d535b0e4db97e93ca3996feb, type: 3}
+  enemies: 0
+  doors: []
 --- !u!61 &6600628379144297760
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ public class TileMapManager : MonoBehaviour
 
     // Tilemap variables - Cell size of tilemap must be set to 1
     public Tilemap baseTileMap; // tilemap containing ground tiles such as grass and mud - tilemap must be component of "GroundTileMapObject"
-    public Tilemap mainTileMap; // tilemap containing main tiles such as walls and placeable items - tilemap must be component of "MainTileMapObject"
 
     public Object[] pathTiles; // array holding all tiles prefabs considered as path tiles
 
@@ -66,7 +65,6 @@ public class TileMapManager : MonoBehaviour
             for (int y = 0; y < sizeY; y++)
             {
                 TileBase baseTile = baseTileMap.GetTile(new Vector3Int(x, y, 0) + baseTileMap.origin);
-                TileBase mainTile = mainTileMap.GetTile(new Vector3Int(x, y, 0) + baseTileMap.origin);
                 /*
                 if (mainTile != null)
                 {
