@@ -349,7 +349,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.06666667, g: 0.02745098, b: 0.14509805, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -667,7 +667,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 722715928}
   chest: {fileID: 949967065}
+  OpenedChest1: {fileID: 1954961005480954373, guid: 3e2e4377cc267514682ca323e1103060, type: 3}
+  OpenedChest2: {fileID: -7310837834188648525, guid: 3e2e4377cc267514682ca323e1103060, type: 3}
   medBox: {fileID: 7233891893455314871, guid: fdd8e33d1957bca408061b09d30bf551, type: 3}
+  SpriteRand: 0
+  x_pos: 0
+  object_x: 0
+  y_pos: 0
+  object_y: 0
   PreSet: 0
   enter: 0
 --- !u!212 &949967067
@@ -710,7 +717,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2454051770175013791, guid: 9f366f6cf564d0848ba173be64eeedd7, type: 3}
+  m_Sprite: {fileID: 6792192216629074988, guid: 3e2e4377cc267514682ca323e1103060, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -729,8 +736,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949967065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.7992, y: 3.5235, z: -3.0363512}
-  m_LocalScale: {x: 3.3378637, y: 3.2439806, z: 1}
+  m_LocalPosition: {x: 5.53, y: 3.6, z: -3.0363512}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -752,14 +759,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6875, y: 0.71875}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.6875, y: 0.71875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6875, y: 0.71875}
+  m_Size: {x: 2.5, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &1588272087
 GameObject:
