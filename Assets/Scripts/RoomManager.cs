@@ -130,6 +130,14 @@ public class RoomManager : MonoBehaviour
                 {
                     transform.GetChild(i).gameObject.GetComponent<BurrowingEnemy>().active = true;
                 }
+                if (transform.GetChild(i).gameObject.GetComponent<RangedEnemy>())
+                {
+                    transform.GetChild(i).gameObject.GetComponent<RangedEnemy>().active = true;
+                }
+                if (transform.GetChild(i).gameObject.GetComponent<BatEnemy>())
+                {
+                    transform.GetChild(i).gameObject.GetComponent<BatEnemy>().active = true;
+                }
             }
 
         }

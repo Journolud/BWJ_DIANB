@@ -12,6 +12,7 @@ public class BurrowingEnemy : MonoBehaviour
     public GameObject projectile;
     public Transform firePoint;
     Animator animator;
+    public float offSetTop = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,11 @@ public class BurrowingEnemy : MonoBehaviour
     void Update()
     {
         if (!active) { return; }
+        if (offSetTop < 1.8)
+        {
+            offSetTop += Time.deltaTime;
+            return;
+        }
         
         if (burrowed)
         {
@@ -40,12 +46,12 @@ public class BurrowingEnemy : MonoBehaviour
         {
             timeSinceShot += Time.deltaTime;
         }
-        if (timeSinceRelocation > 4.3)
+        if (timeSinceRelocation > 5.5)
         {
             animator.SetBool("Burrowed", true);
             canShoot = false;
         }
-        if (timeSinceRelocation > 5)
+        if (timeSinceRelocation > 6.3)
         {
             burrowed = true;
             timeSinceRelocation = 0;
@@ -59,18 +65,18 @@ public class BurrowingEnemy : MonoBehaviour
             GetComponent<Collider2D>().enabled = true;
             timeSinceBurrowed = 0;
         }
-        if (timeSinceRelocation > 0.5)
+        if (timeSinceRelocation > 1.2)
         {
             canShoot = true;
         }
         if (timeSinceRelocation > 0.5f)
         {
-            if (timeSinceShot > 0.2f)
+            if (timeSinceShot > 0.3f)
             {
 
                 Vector2 direction = new Vector2(playerTransform.position.x, playerTransform.position.y) - new Vector2(firePoint.position.x, firePoint.position.y);
                 GameObject _newProjectile = Instantiate(projectile, firePoint.position, Quaternion.identity);
-                _newProjectile.GetComponent<Rigidbody2D>().AddForce(direction.normalized * 6, ForceMode2D.Impulse);
+                _newProjectile.GetComponent<Rigidbody2D>().AddForce(direction.normalized * 5.5f, ForceMode2D.Impulse);
                 timeSinceShot = 0;
             }
         }
