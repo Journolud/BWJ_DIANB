@@ -551,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthDecrease: 0
   health: 100
+  maxHealth: 100
 --- !u!1 &819997140
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,9 +667,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 722715928}
   chest: {fileID: 949967065}
+  medBox: {fileID: 7233891893455314871, guid: fdd8e33d1957bca408061b09d30bf551, type: 3}
   PreSet: 0
-  Ammount: 0
-  Ammo: 0
   enter: 0
 --- !u!212 &949967067
 SpriteRenderer:

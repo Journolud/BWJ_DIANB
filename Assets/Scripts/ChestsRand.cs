@@ -7,10 +7,9 @@ public class ChestsRand : MonoBehaviour
     PlayerHealth playerHealth;
     [SerializeField] GameObject player;
     [SerializeField] GameObject chest;
+    public GameObject medBox;
     private InputActions controls;
     public int PreSet;
-    public int Ammount;
-    public int Ammo;
     public bool enter = false;
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -81,15 +80,6 @@ public class ChestsRand : MonoBehaviour
 
     void SpawnHealth()
     {
-        Ammount = Random.Range(1, 2);
-        if(Ammount == 1)
-        {
-            playerHealth.health += 20;
-        }
-
-        else if(Ammount == 2)
-        {
-            playerHealth.health += 40;
-        }
+        Instantiate(medBox, new Vector3(4, 4, 0), Quaternion.identity);
     }
 }
