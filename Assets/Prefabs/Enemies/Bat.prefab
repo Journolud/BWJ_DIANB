@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8345485304365244577}
   - component: {fileID: 8345485304365244576}
   - component: {fileID: 4358383231840300422}
+  - component: {fileID: 2313960725172109295}
   m_Layer: 12
   m_Name: Bat
   m_TagString: Enemy
@@ -104,7 +105,7 @@ MonoBehaviour:
   active: 0
   projectile: {fileID: 8762062746665294230, guid: e39c1fc4cc8eb8649afdb1efb3e250c0, type: 3}
   firePoint: {fileID: 0}
-  fireSpeed: 1.5
+  fireSpeed: 2.5
 --- !u!114 &8345485304365244577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +121,8 @@ MonoBehaviour:
   health: 80
   roomManager: {fileID: 0}
   deathEffect: {fileID: 3513967293046672831, guid: ad2d15632e4273e4db194530102daec9, type: 3}
+  winUI: {fileID: 0}
+  boss: 0
 --- !u!95 &8345485304365244576
 Animator:
   serializedVersion: 3
@@ -176,3 +179,16 @@ PolygonCollider2D:
       - {x: 1.015625, y: -0.125}
       - {x: 1.015625, y: 0.0625}
       - {x: 0.890625, y: 0.15625}
+--- !u!114 &2313960725172109295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8345485304365244582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80618943ac5e6428e2759ade2e33e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTransparent: 0.2

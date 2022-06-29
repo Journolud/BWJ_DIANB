@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2966815566764805115}
   - component: {fileID: 1042859909485174708}
   - component: {fileID: 4744742816876296940}
+  - component: {fileID: 1798124166961954818}
   m_Layer: 7
   m_Name: BasicSkelly
   m_TagString: Enemy
@@ -119,6 +120,8 @@ MonoBehaviour:
   health: 100
   roomManager: {fileID: 0}
   deathEffect: {fileID: 3513967293046672831, guid: ad2d15632e4273e4db194530102daec9, type: 3}
+  winUI: {fileID: 0}
+  boss: 0
 --- !u!114 &1042859909485174708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSinceShot: 0
-  active: 1
+  active: 0
   projectile: {fileID: 8762062746665294230, guid: e39c1fc4cc8eb8649afdb1efb3e250c0, type: 3}
   firePoint: {fileID: 2966815567917114791}
   firePointRight: {fileID: 2966815567917114791}
@@ -159,6 +162,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1798124166961954818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966815566764805105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80618943ac5e6428e2759ade2e33e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTransparent: 0.2
 --- !u!1 &2966815567917114784
 GameObject:
   m_ObjectHideFlags: 0

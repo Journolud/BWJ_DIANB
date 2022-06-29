@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 8570862170472305757}
   - component: {fileID: 8570862170472305745}
   - component: {fileID: 3639605303390546470}
+  - component: {fileID: 8738960556244864738}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Enemy
@@ -208,11 +209,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSinceShot: 0
-  active: 1
+  active: 0
   projectile: {fileID: 8762062746665294230, guid: e39c1fc4cc8eb8649afdb1efb3e250c0, type: 3}
   firePoint: {fileID: 8570862169451936269}
   firePointLeft: {fileID: 0}
   firePointRight: {fileID: 0}
+  animator: {fileID: 0}
   shotType: single
   singleFireRate: 0.15
   spreadFireRate: 1.4
@@ -253,3 +255,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8738960556244864738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8570862170472305755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80618943ac5e6428e2759ade2e33e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTransparent: 0.2

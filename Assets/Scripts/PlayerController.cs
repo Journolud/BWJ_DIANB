@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public PlayerHealth playerhealth;
 
     // UI stuff
-    public GameObject menuHolder;
+    public GameObject menuHolder, deathMenu, wonMenu;
     public int lives = 3;
 
     public SpriteRenderer livesIndicator;
@@ -215,7 +215,7 @@ public class PlayerController : MonoBehaviour
         lives -= 1;
         if (lives == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            deathMenu.SetActive(true);
         }
         else if (lives == 1)
         {
@@ -238,6 +238,7 @@ public class PlayerController : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -248,6 +249,12 @@ public class PlayerController : MonoBehaviour
         {
             weapon.GetComponent<Weapon>().primaryCoolDown = 0.1f;
         }
+    }
+
+    public void Win()
+    {
+        Time.timeScale = 1;
+        wonMenu.SetActive(true);
     }
 
 

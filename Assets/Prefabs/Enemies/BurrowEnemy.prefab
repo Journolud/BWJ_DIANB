@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1668489081350605120}
   - component: {fileID: 5346728776568531262}
   - component: {fileID: 6599871719308084301}
+  - component: {fileID: 5729593664887224199}
   m_Layer: 7
   m_Name: BurrowEnemy
   m_TagString: Enemy
@@ -103,11 +104,12 @@ MonoBehaviour:
   timeSinceRelocation: 0
   timeSinceBurrowed: 0
   timeSinceShot: 0
-  active: 1
+  active: 0
   burrowed: 0
   canShoot: 0
   projectile: {fileID: 8762062746665294230, guid: e39c1fc4cc8eb8649afdb1efb3e250c0, type: 3}
   firePoint: {fileID: 3341108459485009177}
+  offSetTop: 0
 --- !u!61 &1668489081350605120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,9 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d582a04fc701d42b6efbaecc6ad7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 130
   roomManager: {fileID: 0}
   deathEffect: {fileID: 3513967293046672831, guid: ad2d15632e4273e4db194530102daec9, type: 3}
+  winUI: {fileID: 0}
+  boss: 0
 --- !u!95 &6599871719308084301
 Animator:
   serializedVersion: 3
@@ -168,6 +172,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5729593664887224199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318136980635646631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80618943ac5e6428e2759ade2e33e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTransparent: 0.2
 --- !u!1 &5335102054835052993
 GameObject:
   m_ObjectHideFlags: 0

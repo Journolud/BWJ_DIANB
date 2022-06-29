@@ -6,6 +6,7 @@ public class DropOnDeath : MonoBehaviour
 {
     public GameObject[] drops;
     public int dropPercentage;
+    public Transform second, third;
     
     public void dropPickUp()
     {
@@ -13,6 +14,10 @@ public class DropOnDeath : MonoBehaviour
         {
             GameObject drop = drops[Random.Range(0, drops.Length)];
             Instantiate(drop, transform.position, Quaternion.identity);
+            drop = drops[Random.Range(0, drops.Length)];
+            Instantiate(drop, second.position, Quaternion.identity);
+            drop = drops[Random.Range(0, drops.Length)];
+            Instantiate(drop, third.position, Quaternion.identity);
         }
         
     }

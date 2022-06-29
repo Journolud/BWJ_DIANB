@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 6172959265208796432}
   - component: {fileID: 357224121566514936}
   - component: {fileID: 308765587733014933}
+  - component: {fileID: 8352252909006135998}
   m_Layer: 7
   m_Name: RapidShotEnemy
   m_TagString: Enemy
@@ -179,6 +180,8 @@ MonoBehaviour:
   health: 100
   roomManager: {fileID: 0}
   deathEffect: {fileID: 3513967293046672831, guid: ad2d15632e4273e4db194530102daec9, type: 3}
+  winUI: {fileID: 0}
+  boss: 0
 --- !u!114 &357224121566514936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +202,7 @@ MonoBehaviour:
   firePointLeft: {fileID: 2706440118678839293}
   shotType: single
   fireRate: 0.15
-  fireSpeed: 5
+  fireSpeed: 4
 --- !u!95 &308765587733014933
 Animator:
   serializedVersion: 3
@@ -219,3 +222,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8352252909006135998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172959265208796442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80618943ac5e6428e2759ade2e33e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTransparent: 0

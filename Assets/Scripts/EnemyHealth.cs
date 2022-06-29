@@ -41,6 +41,7 @@ public class EnemyHealth : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShot("event:/bossdie");
                 Time.timeScale = 0;
                 //winUI.active = true;
+                player.Win();
             }
             Destroy(gameObject);
         }
