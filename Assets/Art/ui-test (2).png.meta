@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -9210259049968970706
     second: question_mark
+  - first:
+      213: -1597200073633824330
+    second: bandage
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,7 +105,7 @@ TextureImporter:
         width: 13
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -110,6 +113,27 @@ TextureImporter:
       bones: []
       spriteID: e24d54d21369e2080800000000000000
       internalID: -9210259049968970706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bandage
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 31
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b104dfcefa95d9e0800000000000000
+      internalID: -1597200073633824330
       vertices: []
       indices: 
       edges: []
