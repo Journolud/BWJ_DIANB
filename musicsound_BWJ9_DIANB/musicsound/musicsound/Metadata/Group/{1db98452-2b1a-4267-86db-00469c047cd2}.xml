@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{1db98452-2b1a-4267-86db-00469c047cd2}">
+		<property name="volume">
+			<value>-5.5</value>
+		</property>
+		<property name="name">
+			<value>laser</value>
+		</property>
+		<property name="pitch">
+			<value>-3.60000014</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{ed5ca5c5-1167-48de-97ec-eae9a5218e1b}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{da4e36a8-ffe5-4aaf-80a0-6ade050af417}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{3efda77f-57e6-4e80-b751-c4149f132721}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{ed5ca5c5-1167-48de-97ec-eae9a5218e1b}">
+		<relationship name="effects">
+			<destination>{9a022a04-ea81-4a35-af43-061165e825aa}</destination>
+			<destination>{054e9023-ab3f-4f38-ad79-8dfc104e29a0}</destination>
+			<destination>{aac607eb-f1e5-449e-a77a-448c4b983a44}</destination>
+			<destination>{90856bc0-777e-474b-9311-f47d771d193f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{da4e36a8-ffe5-4aaf-80a0-6ade050af417}" />
+	<object class="FlangerEffect" id="{9a022a04-ea81-4a35-af43-061165e825aa}">
+		<property name="rate">
+			<value>19</value>
+		</property>
+		<property name="delay">
+			<value>0.159999996</value>
+		</property>
+		<property name="mix">
+			<value>98</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{054e9023-ab3f-4f38-ad79-8dfc104e29a0}">
+		<property name="filterTypeA">
+			<value>5</value>
+		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
+		<property name="filterTypeE">
+			<value>8</value>
+		</property>
+		<property name="frequencyA">
+			<value>125</value>
+		</property>
+		<property name="frequencyC">
+			<value>146.169739</value>
+		</property>
+		<property name="qualityA">
+			<value>0.5</value>
+		</property>
+		<property name="qualityC">
+			<value>1.35000002</value>
+		</property>
+		<property name="gainC">
+			<value>-2.58620834</value>
+		</property>
+		<property name="gainE">
+			<value>2</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{aac607eb-f1e5-449e-a77a-448c4b983a44}" />
+	<object class="MixerSend" id="{90856bc0-777e-474b-9311-f47d771d193f}">
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{6a3390c4-b64d-43cb-9918-e41df8841666}</destination>
+		</relationship>
+	</object>
+</objects>
