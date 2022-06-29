@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ChestsRand : MonoBehaviour
 {
-    [SerializeField] GameObject chest;
     [SerializeField] Sprite OpenedChest1;
     [SerializeField] Sprite OpenedChest2;
     [SerializeField] GameObject medBox;
@@ -45,8 +44,8 @@ public class ChestsRand : MonoBehaviour
 
     void RandomPos()
     {
-        x_pos = chest.transform.position.x;
-        y_pos = chest.transform.position.y;
+        x_pos = transform.position.x;
+        y_pos = transform.position.y;
 
         if (x_pos >= 0.1f)
         {
@@ -73,16 +72,16 @@ public class ChestsRand : MonoBehaviour
     {
         SpriteRand = Random.Range(1, 4);
 
-        chest.GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
         
         if(SpriteRand == 2 || SpriteRand == 4)
         {
-            chest.GetComponent<SpriteRenderer>().sprite = OpenedChest1;
+            GetComponent<SpriteRenderer>().sprite = OpenedChest1;
         }
          
         else if (SpriteRand == 1 || SpriteRand == 3)
         {
-            chest.GetComponent<SpriteRenderer>().sprite = OpenedChest2;
+            GetComponent<SpriteRenderer>().sprite = OpenedChest2;
         }
 
         PreSet = Random.Range(1, 4);
