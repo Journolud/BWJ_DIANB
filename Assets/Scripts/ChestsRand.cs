@@ -92,21 +92,17 @@ public class ChestsRand : MonoBehaviour
         if (PreSet == 1)
         {
             SpawnAmmo();
-            RandomPos();
-            RandomMc();
         } 
 
         else if(PreSet == 2)
         {
             SpawnHealth();
-            RandomMc();
         }
 
         else if(PreSet == 3)
         {
             SpawnAmmo();
             RandomPos();
-            RandomMc();
             SpawnHealth();
         }
 
