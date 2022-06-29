@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: musicsound_BWJ9_DIANB/musicsound/musicsound/Build/Desktop/music.bank
   Name: musicsound/musicsound/Build/Desktop/music
   StudioPath: bank:/music
-  lastModified: 637920664026088126
+  lastModified: 637920402455068206
   FileSizes: []
   Exists: 1
 --- !u!114 &-7350215285052271460
@@ -181,7 +181,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 428
---- !u!114 &-2067618632307516205
+--- !u!114 &-3664093153446481527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,6 +204,34 @@ MonoBehaviour:
   - {fileID: -8173932209432510153}
   - {fileID: -8173932209432510153}
   - {fileID: 6470423062461715939}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 218
+--- !u!114 &-2067618632307516205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: 
+  Guid:
+    Data1: -1583281824
+    Data2: 1242313149
+    Data3: 2135496867
+    Data4: -1547733099
+  Banks:
+  - {fileID: -8173932209432510153}
+  - {fileID: -8173932209432510153}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -243,46 +271,18 @@ MonoBehaviour:
   - {fileID: 6506687830621596456}
   - {fileID: 995303827692073369}
   - {fileID: -4222190685251682721}
-  - {fileID: 399841999587265428}
   - {fileID: 342958890335691047}
   - {fileID: -2067618632307516205}
+  - {fileID: -3664093153446481527}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1849787743744992307}
   - {fileID: 588822134132397354}
   StringsBanks:
   - {fileID: 8504461623966080312}
-  cacheTime: 637920664026107968
+  cacheTime: 637920402455088203
   cacheVersion: 10
 --- !u!114 &342958890335691047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: 
-  Guid:
-    Data1: -1583281824
-    Data2: 1242313149
-    Data3: 2135496867
-    Data4: -1547733099
-  Banks:
-  - {fileID: -8173932209432510153}
-  - {fileID: -8173932209432510153}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 218
---- !u!114 &399841999587265428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -352,7 +352,7 @@ MonoBehaviour:
   Path: musicsound_BWJ9_DIANB/musicsound/musicsound/Build/Desktop/Master.bank
   Name: musicsound/musicsound/Build/Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 637920664025807904
+  lastModified: 637920402454764914
   FileSizes: []
   Exists: 1
 --- !u!114 &914063906361931508
@@ -424,7 +424,7 @@ MonoBehaviour:
   Path: musicsound_BWJ9_DIANB/musicsound/Assets/FMODBanks/Desktop/Master.bank
   Name: musicsound/Assets/FMODBanks/Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 637920664022537162
+  lastModified: 637920402451333198
   FileSizes: []
   Exists: 1
 --- !u!114 &2921274641697487589
@@ -442,7 +442,7 @@ MonoBehaviour:
   Path: musicsound_BWJ9_DIANB/musicsound/Assets/FMODBanks/Desktop/sfx.bank
   Name: musicsound/Assets/FMODBanks/Desktop/sfx
   StudioPath: bank:/sfx
-  lastModified: 637920664022647190
+  lastModified: 637920402451456495
   FileSizes: []
   Exists: 1
 --- !u!114 &6470423062461715939
@@ -460,7 +460,7 @@ MonoBehaviour:
   Path: musicsound_BWJ9_DIANB/musicsound/musicsound/Build/Desktop/sfx.bank
   Name: musicsound/musicsound/Build/Desktop/sfx
   StudioPath: bank:/sfx
-  lastModified: 637920664026107968
+  lastModified: 637920402455088203
   FileSizes: []
   Exists: 1
 --- !u!114 &6506687830621596456
@@ -532,7 +532,7 @@ MonoBehaviour:
   Path: musicsound_BWJ9_DIANB/musicsound/Assets/FMODBanks/Desktop/music.bank
   Name: musicsound/Assets/FMODBanks/Desktop/music
   StudioPath: bank:/music
-  lastModified: 637920664022637190
+  lastModified: 637920402451436912
   FileSizes: []
   Exists: 1
 --- !u!114 &8504461623966080312
@@ -550,7 +550,7 @@ MonoBehaviour:
   Path: musicsound_BWJ9_DIANB/musicsound/Assets/FMODBanks/Desktop/Master.strings.bank
   Name: musicsound/Assets/FMODBanks/Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637920664022537162
+  lastModified: 637920402451338419
   FileSizes:
   - Name: 
     Value: 1390
