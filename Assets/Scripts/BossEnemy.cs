@@ -91,6 +91,7 @@ public class BossEnemy : MonoBehaviour
         {
             if (timeSinceShot > singleFireRate)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/bossproj");
                 /*
                 GameObject _newProjectile = Instantiate(projectile, firePoint.position, Quaternion.identity);
                 _newProjectile.GetComponent<Rigidbody2D>().AddForce(direction.normalized * 6, ForceMode2D.Impulse);
@@ -104,6 +105,7 @@ public class BossEnemy : MonoBehaviour
         {
             if (timeSinceShot > spreadFireRate)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/bossspread");
                 GameObject _projectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
                 _projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireSpeed, ForceMode2D.Impulse);
                 _projectile = Instantiate(projectile, firePoint.position, firePoint.rotation);

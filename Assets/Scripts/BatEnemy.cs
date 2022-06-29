@@ -28,6 +28,7 @@ public class BatEnemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, destination, Time.deltaTime * 3);
         if (timeSinceShot > 2.5)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/enemyspread");
             GameObject _projectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
             _projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireSpeed, ForceMode2D.Impulse);
             _projectile = Instantiate(projectile, firePoint.position, firePoint.rotation);

@@ -13,6 +13,7 @@ public class ReflectiveEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Projectile")
         {
             Debug.Log("Reflected Boi");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/bossspread");
             GameObject _projectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
             _projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireSpeed, ForceMode2D.Impulse);
             _projectile = Instantiate(projectile, firePoint.position, firePoint.rotation);

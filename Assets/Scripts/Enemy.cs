@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
         if (!active) { return; }
         Vector3 direction = player.position - transform.position;
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

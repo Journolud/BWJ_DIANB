@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2950060059188539168}
   - component: {fileID: 4874012632280269190}
   - component: {fileID: 14340942996508443}
+  - component: {fileID: 1979421241891996826}
   m_Layer: 9
   m_Name: Circle
   m_TagString: Projectile
@@ -137,3 +138,33 @@ MonoBehaviour:
   damage: 10
   bulletImpact: {fileID: 2857266968914556815, guid: 7008ddbe89f0f374eb439140e20af237, type: 3}
   enchanted: 0
+--- !u!114 &1979421241891996826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196461032883262189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -937487092
+      Data2: 1261034673
+      Data3: 816181933
+      Data4: -959301688
+    Path: event:/playergun
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

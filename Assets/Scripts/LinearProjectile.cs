@@ -18,7 +18,7 @@ public class LinearProjectile : MonoBehaviour
         {
             col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
-        
+        FMODUnity.RuntimeManager.PlayOneShot("event:/impact");
         Instantiate(bulletImpact, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

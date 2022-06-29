@@ -58,8 +58,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (dash)
-        {
-            
+        {        
+            FMODUnity.RuntimeManager.PlayOneShot("event:/dash");    
             dashTimer += Time.deltaTime;
             if (dashTimer > dashTime)
             {
@@ -189,6 +189,8 @@ public class PlayerController : MonoBehaviour
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(gameObject.transform.position, new Vector2(2, 2), 0, layerMask);
         if (hitColliders.Length > 0)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/pickup");
+
             if (hitColliders[0].gameObject.GetComponent<PickUp>().type == "projectile")
             {
                 projectile = hitColliders[0].gameObject.GetComponent<PickUp>().pickUpObject;
