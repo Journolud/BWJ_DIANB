@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,19 +12,35 @@ public class PlayerController : MonoBehaviour
     private bool dash = false;
     private Vector2 dashDirection;
     private float dashTimer = 0;
-    Animator animator;
+    private float dashTime;
+    public Animator animator;
+    public TextMeshProUGUI dashText, speedValue;
 
     // Dash sprites
     public float timeTransparent = 0;
     SpriteRenderer sprite;
-    public GameObject shadow;
+    public GameObject[] shadows;
 
     // Pick up logic
     public GameObject weapon;
     public GameObject projectile;
-   
+
+    public PlayerHealth playerhealth;
+
+    // UI stuff
+    public GameObject menuHolder;
+    public int lives = 3;
+
+    public SpriteRenderer livesIndicator;
+    public Sprite lives2;
+    public Sprite lives1;
 
     
+
+
+
+
+
 
     void Start()
     {
@@ -32,6 +50,7 @@ public class PlayerController : MonoBehaviour
         controls.Player.Dash.performed += _ => Dash();
         controls.Player.PickUp.performed += _ => PickUpItem();
         sprite = GetComponent<SpriteRenderer>();
+        RandomiseStats();
         //animator = gameObject.GetComponent<Animator>();
         
     }
@@ -42,7 +61,7 @@ public class PlayerController : MonoBehaviour
         {
             
             dashTimer += Time.deltaTime;
-            if (dashTimer > 0.25)
+            if (dashTimer > dashTime)
             {
                 dash = false;
                 sprite.color = new Color(1f, 1f, 1f, 1f);
@@ -70,11 +89,31 @@ public class PlayerController : MonoBehaviour
             }
             */
             rb.velocity = new Vector2(xAxisMovement, yAxisMovement).normalized * moveSpeed;
+
+            if (new Vector2(xAxisMovement, yAxisMovement).normalized.y > 0.5)
+            {
+                animator.SetInteger("Vertical", 1);
+                animator.SetBool("Idle", false);
+            }
+            else if (new Vector2(xAxisMovement, yAxisMovement).normalized.y < -0.5)
+            {
+                animator.SetInteger("Vertical", -1);
+                animator.SetBool("Idle", false);
+            }
+            else if (new Vector2(xAxisMovement, yAxisMovement).normalized.y == 0 && new Vector2(xAxisMovement, yAxisMovement).normalized.x == 0)
+            {
+                animator.SetBool("Idle", true);
+            }
+            else
+            {
+                animator.SetInteger("Vertical", 0);
+                animator.SetBool("Idle", false);
+            }
         }
         else
         {
-            rb.velocity = dashDirection * dashSpeed;
-            Instantiate(shadow, transform.position, transform.rotation);
+            rb.velocity = dashDirection * moveSpeed * 2;
+            Instantiate(shadows[Random.Range(0, shadows.Length)], transform.position, transform.rotation);
 
         }
 
@@ -89,6 +128,42 @@ public class PlayerController : MonoBehaviour
         else
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    private void RandomiseStats()
+    {
+        int _healthChoice = Random.Range(0, 4);
+        int[] _healthChoices = new int[] { 80, 120, 120, 140 };
+        playerhealth.SetMaxHealth(_healthChoices[_healthChoice]);
+
+        moveSpeed = 4f;
+        speedValue.text = moveSpeed.ToString();
+
+        dashTime = 0.2f;
+        dashText.text = dashTime.ToString();
+
+    }
+
+    public void IncreaseStat()
+    {
+        if (Random.Range(0, 100) > 30)
+        {
+            moveSpeed += 0.1f;
+            if (moveSpeed > 8)
+            {
+                moveSpeed = 8;
+            }
+            speedValue.text = moveSpeed.ToString();
+        }
+        else
+        {
+            dashTime += 0.01f;
+            if (dashTime > 0.5f)
+            {
+                dashTime = 0.5f;
+            }
+            dashText.text = dashTime.ToString();
         }
     }
 
@@ -119,7 +194,57 @@ public class PlayerController : MonoBehaviour
                 projectile = hitColliders[0].gameObject.GetComponent<PickUp>().pickUpObject;
                 weapon.GetComponent<Weapon>().primaryProjectile = projectile;
                 Destroy(hitColliders[0].gameObject);
+                int layer1 = LayerMask.NameToLayer("Projectile");
+                int layer2 = LayerMask.NameToLayer("EnemyProjectile");
+                if (projectile.name == "EnchantedBullet")
+                {
+                    Physics2D.IgnoreLayerCollision(layer1, layer2, false);
+                }
+                else
+                {
+                    Physics2D.IgnoreLayerCollision(layer1, layer2, false);
+                }
             }
+        }
+    }
+
+    public void HandleDeath()
+    {
+        lives -= 1;
+        if (lives == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else if (lives == 1)
+        {
+            livesIndicator.sprite = lives1;
+        }
+        else if (lives == 2)
+        {
+            livesIndicator.sprite = lives2;
+        }
+        menuHolder.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Respawn()
+    {
+        RandomiseStats();
+        Time.timeScale = 1;
+        menuHolder.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ImproveWeapon()
+    {
+        weapon.GetComponent<Weapon>().primaryCoolDown -= 0.1f;
+        if (weapon.GetComponent<Weapon>().primaryCoolDown < 0.1f)
+        {
+            weapon.GetComponent<Weapon>().primaryCoolDown = 0.1f;
         }
     }
 

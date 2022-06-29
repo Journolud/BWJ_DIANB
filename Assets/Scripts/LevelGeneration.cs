@@ -6,7 +6,7 @@ public class LevelGeneration : MonoBehaviour
 {
     private Dictionary<(int, int), RoomInfo> levelMap;
     public GameObject startRoomPrefab;
-    public GameObject bossRoomPrefab;
+    public GameObject bossRoomPrefab, preBossPrefab;
     public List<GameObject> roomPrefabs, backRoomPrefabs;
     Vector2Int head;
     
@@ -21,7 +21,7 @@ public class LevelGeneration : MonoBehaviour
         head = new Vector2Int(0, 1);
 
         int roomsGenerated = 0;
-        while(roomsGenerated < 10)
+        while(roomsGenerated < 3)
         {
             List<Vector2Int> possibleNeighbours = GetFreeNeighbours(head);
             if (possibleNeighbours.Count == 0)
@@ -31,7 +31,7 @@ public class LevelGeneration : MonoBehaviour
             else
             {
                 bool _boss = false;
-                if (roomsGenerated == 9)
+                if (roomsGenerated == 2)
                 {
                     _boss = true;
                 }
@@ -50,7 +50,7 @@ public class LevelGeneration : MonoBehaviour
             Debug.Log(entry.Value.boss);
             if (entry.Value.boss)
             {
-                Instantiate(bossRoomPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                Instantiate(preBossPrefab, new Vector3(x, y, 0), Quaternion.identity);
             }
             else if (x == 0 && y == 0)
             {
@@ -66,7 +66,9 @@ public class LevelGeneration : MonoBehaviour
                 Instantiate(nextRoom, new Vector3(x, y, 0), Quaternion.identity);
             }
             
+
         }
+        Instantiate(bossRoomPrefab, new Vector3(0, 250, 0), Quaternion.identity);
     }
 
     List<Vector2Int> GetNeighbourDirectionsAtPoint(Vector2Int position)

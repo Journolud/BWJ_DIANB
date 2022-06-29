@@ -8,11 +8,11 @@ public class BossEnemy : MonoBehaviour
     public bool active;
     Transform playerTransform;
     public GameObject projectile;
-    public Transform firePoint;
-    Animator animator;
+    public Transform firePoint, firePointLeft, firePointRight;
+    public Animator animator;
     private Rigidbody2D rb;
     public string shotType = "single";
-    public float singleFireRate = 0.5f;
+    public float singleFireRate = 0.2f;
     public float spreadFireRate = 0.5f;
     public float fireSpeed = 5;
 
@@ -44,6 +44,37 @@ public class BossEnemy : MonoBehaviour
                 shotType = "single";
             }
             timeInMode = 0;
+        }
+
+        Vector2 direction = (new Vector2(playerTransform.position.x, playerTransform.position.y) - new Vector2(firePoint.position.x, firePoint.position.y)).normalized;
+        if (direction.x > 0)
+        {
+            Vector3 eulerRotation = transform.rotation.eulerAngles;
+            //transform.rotation = Quaternion.Euler(eulerRotation.x, 0, eulerRotation.z);
+            animator.SetInteger("Horizontal", 1);
+            firePoint = firePointRight;
+        }
+        else
+        {
+            Vector3 eulerRotation = transform.rotation.eulerAngles;
+            //transform.rotation = Quaternion.Euler(eulerRotation.x, 180, eulerRotation.z);
+            animator.SetInteger("Horizontal", -1);
+            firePoint = firePointLeft;
+        }
+        if (direction.x > -0.5f && direction.x < 0.5f)
+        {
+            if (direction.y > 0)
+            {
+                animator.SetInteger("Vertical", 1);
+            }
+            else
+            {
+                animator.SetInteger("Vertical", -1);
+            }
+        }
+        else
+        {
+            animator.SetInteger("Vertical", 0);
         }
     }
 

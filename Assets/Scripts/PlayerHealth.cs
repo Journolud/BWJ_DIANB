@@ -5,14 +5,25 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public bool healthDecrease = false;
+    public HealthVisuals ui;
     public float health = 100f;
     public float maxHealth = 100f;
+    PlayerController playerController;
+
+    private void Start()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
 
     void FixedUpdate()
     {
         if (healthDecrease && health >= 0.5f)
         {
             health -= 0.5f;
+            if (health <= 0)
+            {
+                playerController.HandleDeath();
+            }
         }
     }
 
@@ -36,6 +47,10 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        if (health <= 0)
+        {
+            playerController.HandleDeath();
+        }
     }
 
     public void AddHealth(int _health)
@@ -45,5 +60,12 @@ public class PlayerHealth : MonoBehaviour
         {
             health = maxHealth;
         }
+    }
+
+    public void SetMaxHealth(int _maxHealth)
+    {
+        maxHealth = _maxHealth;
+        health = maxHealth;
+        ui.SetMaxHealthUI();
     }
 }

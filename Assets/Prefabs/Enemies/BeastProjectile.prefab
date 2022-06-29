@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4350967611192013902}
   - component: {fileID: 8198750685893100975}
   - component: {fileID: 7717433991722314362}
-  - component: {fileID: 7613567549330499774}
+  - component: {fileID: -7580165845583882386}
   m_Layer: 10
   m_Name: BeastProjectile
   m_TagString: Untagged
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7613567549330499774
+--- !u!114 &-7580165845583882386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

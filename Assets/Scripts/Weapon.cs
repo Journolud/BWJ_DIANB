@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
     public float primaryCoolDown;
     private float primaryTimer;
     public float primaryFireSpeed;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class Weapon : MonoBehaviour
         SetAttackFunctions();
         controls.Player.Shoot.performed += _ => primaryFire("primary", primaryShotPoint, primaryProjectile);
         primaryTimer = 0;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,7 @@ public class Weapon : MonoBehaviour
 
         Vector2 mouse = Camera.main.ScreenToWorldPoint(controls.Player.Aim.ReadValue<Vector2>());
         Vector2 lookDir = mouse - new Vector2(transform.position.x, transform.position.y);
+
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 130;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 

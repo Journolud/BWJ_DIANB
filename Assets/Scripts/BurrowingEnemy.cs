@@ -12,23 +12,30 @@ public class BurrowingEnemy : MonoBehaviour
     public GameObject projectile;
     public Transform firePoint;
     Animator animator;
+
     public float offSetTop = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         timeSinceShot = 0;
         timeSinceBurrowed = 0;
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
         canShoot = true;
+        animator.speed = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!active) { return; }
-        if (offSetTop < 1.8)
+        if (offSetTop == 0)
+        {
+            animator.speed = 1;
+        }
+        if (offSetTop < 1.3)
         {
             offSetTop += Time.deltaTime;
             return;

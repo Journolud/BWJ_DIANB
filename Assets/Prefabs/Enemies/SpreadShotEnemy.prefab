@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 601710906840141154}
   - component: {fileID: 601710906840141167}
   - component: {fileID: 8288226683785130521}
+  - component: {fileID: 8590743969731420141}
   m_Layer: 7
   m_Name: SpreadShotEnemy
   m_TagString: Enemy
@@ -117,6 +118,8 @@ MonoBehaviour:
   health: 100
   roomManager: {fileID: 0}
   deathEffect: {fileID: 3513967293046672831, guid: ad2d15632e4273e4db194530102daec9, type: 3}
+  winUI: {fileID: 0}
+  boss: 0
 --- !u!114 &8288226683785130521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,9 +136,30 @@ MonoBehaviour:
   active: 0
   projectile: {fileID: 8762062746665294230, guid: e39c1fc4cc8eb8649afdb1efb3e250c0, type: 3}
   firePoint: {fileID: 601710907977802547}
+  firePointRight: {fileID: 0}
+  firePointLeft: {fileID: 0}
   shotType: spread
   fireRate: 0.5
   fireSpeed: 5
+--- !u!95 &8590743969731420141
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601710906840141157}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f536ed8d250d93643970b0f711a37213, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &601710907977802548
 GameObject:
   m_ObjectHideFlags: 0
