@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ChestsRand : MonoBehaviour
 {
-    PlayerHealth playerHealth;
-    [SerializeField] GameObject player;
     [SerializeField] GameObject chest;
     [SerializeField] Sprite OpenedChest1;
     [SerializeField] Sprite OpenedChest2;
     [SerializeField] GameObject medBox;
+    [SerializeField] GameObject AmmoType;
+    [SerializeField] GameObject MC;
     public int SpriteRand;
     public float x_pos;
     public float object_x;
@@ -41,10 +41,14 @@ public class ChestsRand : MonoBehaviour
             controls.Enable();
             controls.Player.PickUp.performed += _ => Open();
 
+    }
+
+    void RandomPos()
+    {
         x_pos = chest.transform.position.x;
         y_pos = chest.transform.position.y;
 
-        if(x_pos >= 0.1f)
+        if (x_pos >= 0.1f)
         {
             object_x = x_pos - Random.Range(1.5f, 3f);
             object_y = y_pos + Random.Range(0f, 1f);
@@ -55,12 +59,6 @@ public class ChestsRand : MonoBehaviour
             object_x = x_pos + Random.Range(1.5f, 3f);
             object_y = y_pos + Random.Range(0f, 1f);
         }
-
-    }
-
-    void Awake()
-    {
-        playerHealth = player.GetComponent<PlayerHealth>();
     }
 
     void Open()
@@ -89,36 +87,43 @@ public class ChestsRand : MonoBehaviour
 
         PreSet = Random.Range(1, 4);
 
-        if(PreSet == 1)
+        RandomPos();
+
+        if (PreSet == 1)
         {
             SpawnAmmo();
+            RandomPos();
+            RandomMc();
         } 
 
         else if(PreSet == 2)
         {
             SpawnHealth();
+            RandomMc();
         }
 
         else if(PreSet == 3)
         {
-            SpawnGun();
+            SpawnAmmo();
+            RandomPos();
+            RandomMc();
+            SpawnHealth();
         }
 
         else if(PreSet == 4)
         {
-            SpawnAmmo();
-            SpawnHealth();
+            RandomMc();
         }
     }
 
     void SpawnAmmo()
     {
-
+        Instantiate(AmmoType, new Vector3(object_x, object_y, 0), Quaternion.identity);
     }
 
-    void SpawnGun()
+    void RandomMc()
     {
-
+        Instantiate(MC, new Vector3(object_x, object_y, 0), Quaternion.identity);
     }
 
     void SpawnHealth()
