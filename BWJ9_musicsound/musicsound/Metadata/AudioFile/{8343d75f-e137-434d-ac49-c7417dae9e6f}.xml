@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8343d75f-e137-434d-ac49-c7417dae9e6f}">
+		<property name="assetPath">
+			<value>playerhurt.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.32142857142857145</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{15e2d422-290d-4e4b-9d8f-974f6cf2b20f}</destination>
+		</relationship>
+	</object>
+</objects>

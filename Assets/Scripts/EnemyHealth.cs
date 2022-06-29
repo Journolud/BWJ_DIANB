@@ -18,11 +18,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int _damage)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/enemyhurt");
         health -= _damage;
         if (health < 0)
         {
             if (!boss)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/enemydie");
                 roomManager.EnemyKilled();
             }
             if (deathEffect)
@@ -36,6 +38,7 @@ public class EnemyHealth : MonoBehaviour
             player.IncreaseStat();
             if (boss)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/bossdie");
                 Time.timeScale = 0;
                 //winUI.active = true;
             }

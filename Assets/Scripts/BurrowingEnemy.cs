@@ -80,7 +80,7 @@ public class BurrowingEnemy : MonoBehaviour
         {
             if (timeSinceShot > 0.3f)
             {
-
+                FMODUnity.RuntimeManager.PlayOneShot("event:/enemyproj");
                 Vector2 direction = new Vector2(playerTransform.position.x, playerTransform.position.y) - new Vector2(firePoint.position.x, firePoint.position.y);
                 GameObject _newProjectile = Instantiate(projectile, firePoint.position, Quaternion.identity);
                 _newProjectile.GetComponent<Rigidbody2D>().AddForce(direction.normalized * 5.5f, ForceMode2D.Impulse);

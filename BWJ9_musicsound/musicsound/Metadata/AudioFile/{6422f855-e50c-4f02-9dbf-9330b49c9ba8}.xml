@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6422f855-e50c-4f02-9dbf-9330b49c9ba8}">
+		<property name="assetPath">
+			<value>eyedieagain.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.7142857142857142</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{15e2d422-290d-4e4b-9d8f-974f6cf2b20f}</destination>
+		</relationship>
+	</object>
+</objects>

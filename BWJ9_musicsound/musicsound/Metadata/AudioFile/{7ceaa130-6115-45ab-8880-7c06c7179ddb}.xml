@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7ceaa130-6115-45ab-8880-7c06c7179ddb}">
+		<property name="assetPath">
+			<value>fadecrackle.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.89000000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{15e2d422-290d-4e4b-9d8f-974f6cf2b20f}</destination>
+		</relationship>
+	</object>
+</objects>

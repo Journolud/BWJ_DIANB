@@ -72,11 +72,12 @@ public class RangedEnemy : MonoBehaviour
 
 
         if (timeSinceShot > fireRate)
-        {
+        { 
             /*
             GameObject _newProjectile = Instantiate(projectile, firePoint.position, Quaternion.identity);
             _newProjectile.GetComponent<Rigidbody2D>().AddForce(direction.normalized * 6, ForceMode2D.Impulse);
             */
+            FMODUnity.RuntimeManager.PlayOneShot("event:/enemyproj");
             GameObject _projectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
             _projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireSpeed, ForceMode2D.Impulse);
             if (shotType == "spread")

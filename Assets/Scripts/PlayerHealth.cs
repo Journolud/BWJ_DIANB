@@ -46,9 +46,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/playerhurt");
         health -= damage;
         if (health <= 0)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/playerdie");
             playerController.HandleDeath();
         }
     }
